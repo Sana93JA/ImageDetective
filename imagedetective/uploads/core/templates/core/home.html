@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="uk-child-width-expand@s uk-text-center" uk-grid></div>
+<div class="uk-child-width-expand@s uk-text-center" uk-grid></div>
+<div class="uk-child-width-expand@s uk-text-center" uk-grid></div>
+<div class="uk-child-width-expand@s uk-text-center" uk-grid></div>
+<div class="uk-child-width-expand@s uk-text-center" uk-grid>
+  <div class=" uk-heading-large"> <b href="">Image Detective</b></div>
+</div>
+    <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+  <div class=" uk-heading-small"> <a href="{% url 'detect' %}">Start</a></div>
+</div>
+<div class="uk-child-width-expand@s uk-text-center" uk-grid>
+  <div> This project provides object detection and labeling for your images. </div>
+</div>
+<div class="uk-child-width-expand@s uk-text-center" uk-grid>
+  <div>
+      <div class="uk-card uk-card-default	 uk-card-hover uk-card-body"><img src="media/static-catsanddogs.jpg"></div>
+  </div>
+  <div>
+      <div class="uk-card uk-card-default uk-card-hover uk-card-body"><img src="media/static-lecture.jpg"></div>
+  </div>
+     <div>
+      <div class="uk-card uk-card-default uk-card-hover uk-card-body"><img src="media/static-dogandbikeandhuman.jpg"></div>
+  </div>
+  <div>
+      <div class="uk-card uk-card-default uk-card-hover uk-card-body"><img src="media/static-buses.jpg"></div>
+  </div>
+</div>
+{% endblock %}

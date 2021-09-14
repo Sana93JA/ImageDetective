@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="uk-child-width-expand@s uk-text-center" uk-grid></div>
+<div class="uk-child-width-expand@s uk-text-center" uk-grid></div>
+<div class="uk-child-width-expand@s uk-text-center" uk-grid></div>
+<div class="uk-child-width-expand@s uk-text-center" uk-grid></div>
+
+<div class="uk-child-width-expand@s uk-text-center" uk-grid>
+  <form  class="uk-form-horizontal" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="uk-margin">
+    <span class="uk-text-middle">Upload the image you want to run object detection on</span>
+      <div uk-form-custom>
+          <input type="file">
+      </div>
+    </div>
+    <div class="uk-margin">
+      <div uk-form-custom>
+        <input class="uk-input" id="form-stacked-text" type="file" name="myfile">
+          <button class="uk-button uk-button-default" type="button" tabindex="-1">Select Image</button>
+      </div>
+    </div>
+
+  <div class="uk-margin" uk-margin>
+      <div uk-form-custom="target: true">
+          <input type="file">
+          <input class="uk-input uk-form-width-medium" type="text" placeholder="">
+      </div>
+      <button class="uk-button uk-button-default" type="submit">Submit</button>
+  </div>
+    <!-- <div>
+      <label class="uk-form-label" for="form-stacked-text"> Image </label>
+      <div class="uk-form-controls"><input class="uk-input" id="form-stacked-text" type="file" name="myfile"></div>
+  </div> -->
+    
+    <!-- <button type="submit">Detect</button> -->
+  </form>
+</div>
+{% if uploaded_file_url %}
+<div class="uk-child-width-expand@s uk-text-center" uk-grid>
+    <p>Original: <a href="{{ original_file_url }}">{{ original_file_url }}</a></p>
+    <p>Labeled: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url  }}</a></p>
+</div>
+<div class="uk-child-width-expand@s uk-text-center" uk-grid>
+  <div>
+    <div class="uk-card uk-card-default	 uk-card-hover uk-card-body"><img src="{{ original_file_url }}"></div>
+</div>
+<div>
+  <div class="uk-card uk-card-default	 uk-card-hover uk-card-body"><img src="{{ uploaded_file_url }}"></div>
+</div>
+</div>
+{% endif %}
+<div class="uk-child-width-expand@s uk-text-center" uk-grid>
+
+  <p><a href="{% url 'home' %}">Return to home</a></p>
+  </div>
+{% endblock %}
